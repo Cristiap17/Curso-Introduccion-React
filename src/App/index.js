@@ -11,10 +11,13 @@ import { Modal } from "../Modal";
 import { TodosError } from '../TodosError';
 import { TodosLoading } from '../TodosLoading';
 import { EmptyTodos } from '../EmptyTodos';
+import { ChangeAlert } from '../ChangeAlert';
+
 
 
 function App() {
-  const { error, 
+  const { 
+    error, 
     loading,
     searchedTodos,
     completeTodo,
@@ -26,6 +29,7 @@ function App() {
     searchValue, 
     setsearchValue,
     addTodo,
+    sincronizeTodos,
   } = useTodos()
 
 
@@ -79,6 +83,10 @@ function App() {
 				</Modal>
 			)}
 			<CreateTodoButton setOpenModal={setOpenModal} />
+
+      <ChangeAlert
+        sincronize={sincronizeTodos}
+      />
 		</React.Fragment>
 	);
 }
